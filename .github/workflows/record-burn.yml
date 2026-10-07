@@ -1,0 +1,38 @@
+# Records a $CONSOLE buyback-and-burn you did by hand, so the site shows it.
+# GitHub → Actions → "record burn" → Run workflow → paste the burn transaction's signature from Solscan.
+name: record burn
+on:
+  workflow_dispatch:
+    inputs:
+      tx:
+        description: "Burn transaction signature (from Solscan)"
+        required: true
+      tokens:
+        description: "How many $CONSOLE tokens were burned (a number)"
+        required: true
+      sol:
+        description: "SOL spent on the buyback (a number, 0 if unknown)"
+        required: true
+        default: "0"
+      note:
+        description: "Optional note"
+        required: false
+        default: ""
+permissions: {}
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Record the burn
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          TX: ${{ inputs.tx }}
+          TOKENS: ${{ inputs.tokens }}
+          SOL: ${{ inputs.sol }}
+          NOTE: ${{ inputs.note }}
+        run: |
+          if [ -z "$SITE_URL" ] || [ -z "$CRON_SECRET" ]; then echo "Add the SITE_URL and CRON_SECRET repo secrets first."; exit 1; fi
+          printf '{"tx":"%s","tokens":%s,"sol":%s,"note":"%s"}' "$TX" "$TOKENS" "$SOL" "$NOTE" > body.json
+          curl -sS --fail-with-body -m 60 -H "Authorization: Bearer $CRON_SECRET" -H "Content-Type: application/json" --data @body.json "$SITE_URL/api/admin/burn"

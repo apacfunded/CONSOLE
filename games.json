@@ -1,0 +1,39 @@
+{
+  "_howto": "This is the list of games and combos people can launch a coin for. Add a game by copying one block in 'games' and changing it. Add a combo by listing 2 or more game ids that already exist in 'games'. 'open' false hides a game from the launch list without deleting it. 'stage' is 1 to 5, 'pct' is how far through that stage (0 to 100). Platforms: N64, PS1, GBA, PS2, PS3, PS4, X360, PC. 'icon' picks the card picture: web, burst, palm, skyline, cube, blades, deck, ramp, spray, star, crosshair, goggles, tag, moon, pow, donut, bell, hat, dice, siren, flame, helix, bolt, ring, shield, pad.",
+  "games": [
+    {"id": "marvels-spider-man-2018", "name": "Marvel's Spider-Man (2018)", "platform": "PS4", "icon": "web", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "spider-man-shattered-dimensions", "name": "Spider-Man: Shattered Dimensions", "platform": "PC", "icon": "burst", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "gta-5", "name": "Grand Theft Auto V (story mode)", "platform": "PC", "icon": "palm", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "gta-4", "name": "Grand Theft Auto IV", "platform": "PC", "icon": "skyline", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "minecraft", "name": "Minecraft", "platform": "PC", "icon": "cube", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "god-of-war-2005", "name": "God of War (2005)", "platform": "PS2", "icon": "blades", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "skate-3", "name": "Skate 3", "platform": "X360", "icon": "ramp", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "skate-2", "name": "Skate 2", "platform": "X360", "icon": "deck", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "cod4-modern-warfare", "name": "Call of Duty 4: Modern Warfare (campaign)", "platform": "PC", "icon": "crosshair", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "cod-black-ops-2", "name": "Call of Duty: Black Ops II (campaign)", "platform": "PC", "icon": "goggles", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "cod-black-ops", "name": "Call of Duty: Black Ops (campaign)", "platform": "PC", "icon": "tag", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "spider-man-2-2004", "name": "Spider-Man 2 (2004)", "platform": "PS2", "icon": "moon", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "ultimate-spider-man", "name": "Ultimate Spider-Man (2005)", "platform": "PS2", "icon": "pow", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "thug", "name": "Tony Hawk's Underground", "platform": "PS2", "icon": "spray", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "thps3", "name": "Tony Hawk's Pro Skater 3", "platform": "PS2", "icon": "star", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "simpsons-hit-and-run", "name": "The Simpsons: Hit & Run", "platform": "PC", "icon": "donut", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "bully", "name": "Bully", "platform": "PS2", "icon": "bell", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "red-dead-redemption", "name": "Red Dead Redemption", "platform": "PS3", "icon": "hat", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "saints-row-2", "name": "Saints Row 2", "platform": "PC", "icon": "dice", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "nfs-most-wanted-2005", "name": "Need for Speed: Most Wanted (2005)", "platform": "PC", "icon": "siren", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "burnout-3", "name": "Burnout 3: Takedown", "platform": "PS2", "icon": "flame", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "prototype", "name": "Prototype (2009)", "platform": "PC", "icon": "helix", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "infamous", "name": "inFAMOUS", "platform": "PS3", "icon": "bolt", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "halo-3", "name": "Halo 3 (campaign)", "platform": "X360", "icon": "ring", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""},
+    {"id": "halo-reach", "name": "Halo: Reach (campaign)", "platform": "X360", "icon": "shield", "open": true, "stage": 1, "pct": 0, "functions": 0, "repo": ""}
+  ],
+  "combos": [
+    {"id": "gta-4-x-gta-5", "name": "Liberty City x Los Santos", "games": ["gta-4", "gta-5"], "idea": "GTA IV's Liberty City brought into GTA V's story mode.", "open": true},
+    {"id": "skate-2-x-skate-3", "name": "San Van x Port Carverton", "games": ["skate-2", "skate-3"], "idea": "Skate 2's San Vanelona spots inside Skate 3.", "open": true},
+    {"id": "spidey-x-dimensions", "name": "Spidey x Dimensions", "games": ["marvels-spider-man-2018", "spider-man-shattered-dimensions"], "idea": "Shattered Dimensions suits and villains in 2018's New York.", "open": true},
+    {"id": "black-ops-1-x-2", "name": "Black Ops 1 x 2", "games": ["cod-black-ops", "cod-black-ops-2"], "idea": "Black Ops 1 campaign levels playable in Black Ops II.", "open": true},
+    {"id": "spider-swing", "name": "Swing Through Time", "games": ["spider-man-2-2004", "marvels-spider-man-2018"], "idea": "Spider-Man 2's 2004 city swinging inside the 2018 game.", "open": true},
+    {"id": "skate-x-thug", "name": "Skate x Hawk", "games": ["skate-3", "thug"], "idea": "Tony Hawk's Underground levels skated in Skate 3.", "open": true},
+    {"id": "gta-x-springfield", "name": "Los Santos x Springfield", "games": ["gta-5", "simpsons-hit-and-run"], "idea": "Springfield as a new district in GTA V's story mode.", "open": true}
+  ]
+}

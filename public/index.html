@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Console</title>
+<meta name="description" content="Your dream crossover, funded. A pump.fun launchpad where every coin is a game combo, and its trading fees pay AI to reverse engineer the games and build it.">
+<meta name="theme-color" content="#fff3f8">
+<meta property="og:title" content="Console">
+<meta property="og:description" content="Your dream crossover, funded. Every coin is a game combo on pump.fun.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="banner" role="note" id="banner">Loading Console…</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-in">
+      <a class="brand" href="#explore" aria-label="Console home">console</a>
+      <nav class="topnav" aria-label="Main">
+        <a href="#explore" data-nav="explore">Games</a>
+        <a href="#combos" data-nav="combos-link">Combos</a>
+        <a href="#live" data-nav="live">Live</a>
+        <a href="#pools" data-nav="pools">Pools</a>
+        <a href="#rules" data-nav="rules">Rules</a>
+      </nav>
+      <div class="hdr-act">
+        <button class="btn" type="button" id="wallet">Connect wallet</button>
+        <a class="btn primary" href="#launch">Launch a coin</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main class="wrap" id="main">
+
+  <!-- EXPLORE -->
+  <section data-view="explore" aria-labelledby="h-explore">
+    <div class="bento-hero">
+      <div class="hero-tile">
+        <p class="eyebrow">A pump.fun launchpad for game crossovers</p>
+        <h1 id="h-explore" tabindex="-1">Your dream crossover,<br>funded.</h1>
+        <div class="cta-row">
+          <a class="btn dark lg" href="#launch">Launch a coin</a>
+          <span class="hero-note">Every coin is a combo of 2 or 3 games. Its trading fees pay AI to rebuild them, and the dev picks how much. <a class="hero-link" href="#how">How it works</a></span>
+        </div>
+        <ol class="getlist" aria-label="What you get">
+          <li><b>Combine 2 or 3 games</b><span>Every coin is a combo, traded on pump.fun.</span></li>
+          <li><b>Fees fund the AI</b><span>The dev sends 25 to 100% of fees to AI work on the combo.</span></li>
+          <li><b>Watch it get rebuilt</b><span>Progress is posted stage by stage. Code goes public.</span></li>
+        </ol>
+      </div>
+      <div class="stats" aria-label="Totals" id="stats">
+        <div class="stat t-mint"><span>Sent to AI</span><b>—</b></div>
+        <div class="stat t-butter"><span>Coins live</span><b>—</b></div>
+        <div class="stat t-lilac"><span>Waiting in pools</span><b>—</b></div>
+        <div class="stat t-sky"><span>Games to combine</span><b>—</b></div>
+      </div>
+    </div>
+
+    <div class="bento-row">
+      <section class="tile" aria-labelledby="h-top">
+        <div class="sec-head"><div><h2 id="h-top">Closest to done</h2><p id="p-top">Overall progress across all five stages.</p></div></div>
+        <div class="top3" id="top3"></div>
+      </section>
+      <div class="crt" aria-label="Live">
+        <div class="crt-head"><span>Happening now</span><span class="live"><i class="dot"></i>Live</span></div>
+        <a class="crt-feature" id="feature" href="#games"></a>
+        <ul class="feed" id="homefeed" aria-label="Recent activity"></ul>
+        <a class="crt-foot" href="#live">Watch a function get matched <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <section class="block dark-panel" id="combos" aria-labelledby="h-combos">
+      <div class="sec-head"><div><h2 id="h-combos">Combos</h2><p>Every coin on Console is a combo. Each card shows how much of its fees the dev sends to the AI.</p></div></div>
+      <div class="filters ctools">
+        <div class="chips" role="group" aria-label="Filter combos" id="cchips"></div>
+        <select class="f sortsel" id="csort" aria-label="Sort combos">
+          <option value="live">Live first</option>
+          <option value="ai">Highest AI share</option>
+          <option value="mc">Biggest market cap</option>
+          <option value="new">Newest</option>
+        </select>
+      </div>
+      <div class="cgrid" id="combogrid"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+      <button class="btn more" type="button" id="cmore" hidden>Show all combos</button>
+    </section>
+
+    <section class="block" id="games" aria-labelledby="h-games">
+      <div class="sec-head"><div><h2 id="h-games">Games</h2><p>Pick any 2 or 3 to combine. Each combo gets one coin, and its fees fund work on its games.</p></div></div>
+      <div class="filters">
+        <label class="search" for="q">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Search games or tickers" autocomplete="off" aria-label="Search games">
+          <kbd class="pad" aria-hidden="true">/</kbd>
+        </label>
+        <div class="chips" role="group" aria-label="Filter by platform" id="chips"></div>
+        <select class="f sortsel" id="sort" aria-label="Sort games">
+          <option value="pct">Most progress</option>
+          <option value="mc">Most combos</option>
+          <option value="open">Not combined yet</option>
+        </select>
+      </div>
+      <div class="cgrid" id="grid" aria-live="polite">
+        <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+      </div>
+      <button class="btn more" type="button" id="more" hidden>Show all games</button>
+    </section>
+
+    <section class="block" id="how" aria-labelledby="h-how">
+      <div class="sec-head"><div><h2 id="h-how">How a game gets rebuilt</h2><p>Five stages. Progress is posted by the Console team from build results and shown on every game.</p></div></div>
+      <ol class="stages" id="stages"></ol>
+      <p class="splitline">10% of every fee buys back and burns $CONSOLE. Each coin's dev picks how much of the rest pays for AI work, 25 to 100%, and keeps the remainder. <a class="link" href="#pools">See the pools</a></p>
+    </section>
+  </section>
+
+  <!-- LIVE -->
+  <section data-view="live" aria-labelledby="h-live" hidden>
+    <div class="pagehead"><h1 id="h-live" tabindex="-1">Live</h1><p>How the AI rewrites a function and the compiler checks it, plus everything happening on Console right now.</p></div>
+    <div class="live-grid">
+      <div id="live-mv"></div>
+      <div class="crt">
+        <div class="crt-head"><span>activity</span><span class="live"><i class="dot"></i>Live</span></div>
+        <ul class="feed act" id="livefeed" aria-label="Recent activity"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- POOLS -->
+  <section data-view="pools" aria-labelledby="h-pools" hidden>
+    <div class="pagehead"><h1 id="h-pools" tabindex="-1">Pools, buyback and burn</h1><p>Where every SOL of creator fees goes, in the open.</p></div>
+    <div class="panel">
+      <h2 style="font-size:18px;margin-bottom:14px">Where every fee goes</h2>
+      <div class="split" role="img" aria-label="Example with the dev picking 50%: 45% AI compute, 10% buyback and burn, 45% to the dev"><i style="width:45%"></i><i style="width:10%"></i><i style="width:45%"></i></div>
+      <p class="hintx" style="margin-top:6px">Example: a dev who picked 50% for the AI</p>
+      <div class="legend">
+        <div><span class="sw" style="background:var(--pink)"></span><b>AI compute: 25 to 100% of the rest</b><span>The dev picks this when launching and it can't be changed. Pays for AI calls, compile runs and storage for that combo's games.</span></div>
+        <div><span class="sw" style="background:var(--plum)"></span><b>10% Buyback and burn</b><span>Taken off the top of every pool. Buys $CONSOLE and burns it.</span></div>
+        <div><span class="sw" style="background:var(--line-2)"></span><b>The rest: the dev</b><span>Paid to the wallet that launched the coin. Zero if they picked 100% for the AI.</span></div>
+      </div>
+      <p class="hintx" style="margin-top:14px" id="threshold"></p>
+    </div>
+    <div class="stats" aria-label="Pool totals">
+      <div class="stat"><b id="pl-waiting">—</b><span>Waiting in coin pools</span></div>
+      <div class="stat"><b id="pl-funded">—</b><span>Sent to AI compute</span></div>
+      <div class="stat"><b id="pl-buyback">—</b><span>Sent to buyback</span></div>
+      <div class="stat"><b id="pl-dev">—</b><span>Paid to devs</span></div>
+      <div class="stat"><b id="pl-burned">—</b><span>$CONSOLE burned</span></div>
+    </div>
+    <p class="hintx trust" id="lastclaim"></p>
+    <div>
+      <div class="tabs" role="tablist" aria-label="Ledgers" id="pooltabs">
+        <button role="tab" id="pt-1" aria-controls="pp-1" aria-selected="true" tabindex="0">Compute</button>
+        <button role="tab" id="pt-2" aria-controls="pp-2" aria-selected="false" tabindex="-1">Buyback</button>
+        <button role="tab" id="pt-3" aria-controls="pp-3" aria-selected="false" tabindex="-1">Devs</button>
+        <button role="tab" id="pt-4" aria-controls="pp-4" aria-selected="false" tabindex="-1">Burns</button>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="pp-1" aria-labelledby="pt-1"><ul class="log" id="log-compute"></ul></div>
+      <div class="tabpanel" role="tabpanel" id="pp-2" aria-labelledby="pt-2" hidden><ul class="log" id="log-buyback"></ul></div>
+      <div class="tabpanel" role="tabpanel" id="pp-3" aria-labelledby="pt-3" hidden><ul class="log" id="log-dev"></ul></div>
+      <div class="tabpanel" role="tabpanel" id="pp-4" aria-labelledby="pt-4" hidden><ul class="log" id="log-burn"></ul></div>
+    </div>
+    <div class="panel"><h2 style="font-size:16px;margin-bottom:10px">Public wallets</h2><p class="hintx" style="margin-bottom:12px">Every payout goes to one of these, or to the dev who launched the coin. Buybacks and burns are done by hand from the buyback wallet and recorded in the Burns tab.</p><div class="addrs" id="addrs"></div></div>
+  </section>
+
+  <!-- LAUNCH -->
+  <section data-view="launch" aria-labelledby="h-launch" hidden>
+    <div class="pagehead"><h1 id="h-launch" tabindex="-1">Launch a coin</h1><p>Coins are launched for combos only. Pick 2 or 3 approved games, name your coin, and launch it on pump.fun from your own wallet. One live coin per combo.</p></div>
+    <ol class="stepper" id="stepper" aria-label="Launch steps">
+      <li data-s="1" aria-current="step">1 · Pick games</li>
+      <li data-s="2">2 · Name your coin</li>
+      <li data-s="3">3 · Review and launch</li>
+    </ol>
+    <div class="launch">
+      <div class="panel">
+        <div class="lstep" data-step="1">
+          <h2>Pick 2 or 3 games to combine</h2>
+          <div class="field"><span class="lbl">Suggested combos</span><div class="sugg" id="sugg"></div></div>
+          <div class="field">
+            <label class="lbl" for="gsearch">Find a game</label>
+            <input class="f" id="gsearch" type="search" placeholder="Name or platform" autocomplete="off">
+          </div>
+          <div class="glist" id="glist" role="group" aria-label="Approved games"></div>
+          <div class="picked" id="picked" aria-live="polite"></div>
+          <p class="err" id="e-game" hidden></p>
+          <div class="lnav"><span></span><button class="btn primary" type="button" data-next="2">Continue</button></div>
+        </div>
+        <div class="lstep" data-step="2" hidden>
+          <h2>Name your coin</h2>
+          <div class="row2">
+            <div class="field">
+              <label class="lbl" for="lf-name">Coin name</label>
+              <input class="f" id="lf-name" maxlength="32" autocomplete="off" aria-describedby="h-name e-name">
+              <span class="hintx" id="h-name">Use an original name, not the game's title.</span>
+              <span class="err" id="e-name" hidden></span>
+            </div>
+            <div class="field">
+              <label class="lbl" for="lf-tick">Ticker</label>
+              <input class="f mono" id="lf-tick" maxlength="10" autocomplete="off" aria-describedby="h-tick e-tick">
+              <span class="hintx" id="h-tick">2 to 10 letters or numbers</span>
+              <span class="err" id="e-tick" hidden></span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="lbl" for="lf-img">Coin image</label>
+            <div class="drop"><span class="pvimg" id="lf-pv" aria-hidden="true">?</span><div style="display:grid;gap:4px;min-width:0"><input id="lf-img" type="file" accept="image/png,image/jpeg,image/gif,image/webp" aria-describedby="h-img e-img"><span class="hintx" id="h-img">PNG, JPG, GIF or WebP, under 2 MB. Original art only. If you leave this page, pick the image again; the rest is remembered.</span></div></div>
+            <span class="err" id="e-img" hidden></span>
+          </div>
+          <div class="field">
+            <label class="lbl" for="lf-desc">Crossover idea <span class="hintx">optional</span></label>
+            <textarea class="f" id="lf-desc" maxlength="500" placeholder="What should the combined game be? e.g. Skate 2's spots inside Skate 3"></textarea>
+          </div>
+          <div class="field">
+            <label class="lbl" for="lf-ai">Fees to the AI <output id="lf-ai-out" for="lf-ai" class="aiout">50%</output></label>
+            <input class="range" id="lf-ai" type="range" min="25" max="100" step="5" value="50" aria-describedby="h-ai">
+            <div class="aibreak" id="lf-ai-break"></div>
+            <span class="hintx" id="h-ai">10% of fees always buys back $CONSOLE. You choose how the other 90% is shared between the AI and your wallet. It starts at 50% because an even split is the easiest for traders to trust. Locked once you launch.</span>
+          </div>
+          <div class="field">
+            <label class="lbl" for="lf-x">X link <span class="hintx">optional</span></label>
+            <input class="f" id="lf-x" autocomplete="off" placeholder="@handle or x.com link" aria-describedby="e-x">
+            <span class="err" id="e-x" hidden></span>
+          </div>
+          <div class="lnav"><button class="btn ghost" type="button" data-next="1">Back</button><button class="btn primary" type="button" data-next="3">Review launch</button></div>
+        </div>
+        <div class="lstep" data-step="3" hidden>
+          <h2>Review and launch</h2>
+          <dl class="review" id="review"></dl>
+          <div>
+            <div id="lf-split"></div>
+            <p class="hintx" style="margin-top:8px" id="lf-splittext"></p>
+          </div>
+          <div class="whatsign">
+            <b>What your wallet will sign</b>
+            <ul>
+              <li>One transaction: create your coin on pump.fun.</li>
+              <li>Cost about <b>0.03 SOL</b> in rent and network fees. No dev buy, nothing else.</li>
+              <li>Console checks the transaction before your wallet opens and never holds your funds.</li>
+            </ul>
+          </div>
+          <span class="badge">Code only, no game files</span>
+          <details class="why">
+            <summary>Why this is allowed</summary>
+            <p>Console studies how a game works and publishes newly written code. It never hosts the game's art, audio or original files, and every build needs the player's own copy.</p>
+            <p>US courts have treated taking software apart to understand it as fair use (Sega v. Accolade, 1992). This isn't legal advice. Read the full <a href="#rules">rules</a>.</p>
+          </details>
+          <div class="walletline" id="lf-wallet"></div>
+          <p class="msg" id="lf-msg" role="status"></p>
+          <div class="lnav"><button class="btn ghost" type="button" data-next="2">Back</button><button class="btn primary lg" type="button" id="do-launch">Launch on pump.fun</button></div>
+        </div>
+      </div>
+      <div class="aside">
+        <div id="pv" style="max-width:300px"></div>
+        <div class="panel">
+          <h3 style="font-size:15px;margin-bottom:10px">What happens next</h3>
+          <ul class="next">
+            <li>Your wallet signs and pays about 0.03 SOL. Console never holds your funds.</li>
+            <li>Your coin goes live on pump.fun, with its website link pointing to its page on Console.</li>
+            <li>Its creator fees are split each time its pool fills: 10% buys back $CONSOLE, your chosen share funds AI work on the combo's games, and the rest is paid to your wallet. No finish date is promised.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ME -->
+  <section data-view="me" aria-labelledby="h-me" hidden><div id="me"></div></section>
+
+  <!-- RULES -->
+  <section data-view="rules" aria-labelledby="h-rules" hidden>
+    <div class="pagehead"><h1 id="h-rules" tabindex="-1">Risks and rules</h1><p>Console only works long term if it follows the same rules that keep fan decompilation projects alive.</p></div>
+    <details class="why" open>
+      <summary>Why this is allowed</summary>
+      <p>Console studies how a game works and publishes newly written code. It never hosts the game's art, audio or original files, and every build needs the player's own legally owned copy. US courts have treated taking software apart to understand it as fair use (Sega v. Accolade, 1992). This isn't legal advice.</p>
+    </details>
+    <div class="panel money">
+      <h3>Where the money goes</h3>
+      <ul>
+        <li>Each coin's pump.fun creator fees go to a pool wallet Console controls for that coin.</li>
+        <li>When a pool reaches 0.5 SOL it is split: <b>10% buys back and burns $CONSOLE</b>, the dev's chosen share (<b>25 to 100%</b> of the rest) goes to the <b>AI compute wallet</b>, and whatever is left is paid to the <b>dev's own wallet</b>.</li>
+        <li>The dev picks their AI share when launching. It is shown on the coin's card and can never be changed.</li>
+        <li>The AI compute wallet is controlled by the Console team and pays for the AI work. Buybacks and burns are done by hand and recorded on the <a href="#pools">Pools</a> page, with a link to each transaction.</li>
+        <li>Console never takes a cut beyond the AI compute wallet. Every payout is public on Solscan.</li>
+      </ul>
+    </div>
+    <div class="rules">
+      <div class="panel"><h3>Memecoins are extremely risky</h3><p>Most coins lose most or all of their value, often within hours. A coin being on Console doesn't mean we vouch for it.</p></div>
+      <div class="panel"><h3>No finished port is promised</h3><p>Fees fund the work. Big games can take a long time and a coin with little volume may stall. Progress is posted by the Console team from build results, not estimated.</p></div>
+      <div class="panel"><h3>AI tasks every 1 SOL of volume</h3><p>Each coin earns one AI task for every 1 SOL traded, estimated from the creator fees collected. Tasks appear on the coin's AI work tab as queued, running or done, and say who did them. The AI works from public knowledge with no access to the games' files, so its notes are plans and research, not finished code.</p></div>
+      <div class="panel"><h3>No game files, ever</h3><p>Console publishes code only. You need your own legally owned copy of a game (both games, for a combo) to build or play it.</p></div>
+      <div class="panel"><h3>Approved games only</h3><p>No online, live-service or anti-cheat games. Coin names and art must be original, not a game's title or logo.</p></div>
+      <div class="panel"><h3>Takedowns</h3><p>If a rights holder objects, that game's work and coin page are paused while we review it.</p></div>
+      <div class="panel"><h3>Your wallet, your responsibility</h3><p>Console never asks for your seed phrase or private key. Connecting a wallet only shares your public address. We will never DM you first.</p></div>
+    </div>
+  </section>
+
+  <!-- GAME / COMBO -->
+  <section data-view="game" aria-label="Game" hidden><div id="gv"></div></section>
+
+  <footer class="foot">
+    <span>Console · creator fees that rebuild classic games.</span>
+    <span><a href="#rules">Rules</a> · <span class="mono">$CONSOLE coming after the launchpad</span></span>
+  </footer>
+</main>
+
+<div class="buybar" id="buybar" hidden><a class="bb-back" href="#explore" aria-label="Back to games"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a><div class="bb-in" id="bb-in"></div></div>
+
+<nav class="tabbar" aria-label="Main">
+  <a href="#explore" data-nav="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>Explore</a>
+  <a href="#live" data-nav="live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>Live</a>
+  <a href="#pools" data-nav="pools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>Pools</a>
+  <a href="#launch" data-nav="launch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Launch</a>
+</nav>
+
+<div class="toast" id="toast" role="status" hidden></div>
+<script src="/app.js" defer></script>
+</body>
+</html>

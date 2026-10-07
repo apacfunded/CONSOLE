@@ -1,0 +1,38 @@
+# Posts the result of an AI task you did yourself, so the coin's page shows it.
+# GitHub → Actions → "post task" → Run workflow → paste the coin address, task number and a one-sentence summary.
+name: post task
+on:
+  workflow_dispatch:
+    inputs:
+      mint:
+        description: "Coin address (mint)"
+        required: true
+      n:
+        description: "Task number (leave empty for the oldest open task)"
+        required: false
+        default: ""
+      summary:
+        description: "One sentence on what was done"
+        required: true
+      detail:
+        description: "Notes (optional)"
+        required: false
+        default: ""
+permissions: {}
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Post the task result
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          MINT: ${{ inputs.mint }}
+          N: ${{ inputs.n }}
+          SUMMARY: ${{ inputs.summary }}
+          DETAIL: ${{ inputs.detail }}
+        run: |
+          if [ -z "$SITE_URL" ] || [ -z "$CRON_SECRET" ]; then echo "Add the SITE_URL and CRON_SECRET repo secrets first."; exit 1; fi
+          jq -n --arg mint "$MINT" --arg n "$N" --arg summary "$SUMMARY" --arg detail "$DETAIL" '{mint:$mint,n:$n,summary:$summary,detail:$detail,status:"done"}' > body.json
+          curl -sS --fail-with-body -m 60 -H "Authorization: Bearer $CRON_SECRET" -H "Content-Type: application/json" --data @body.json "$SITE_URL/api/admin/task"

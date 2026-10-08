@@ -177,7 +177,7 @@ function renderAll() {
     : sugg.length ? sugg.map(c => `<div class="t3 sug"><span class="rk icons" aria-hidden="true">${gamesOf(c).map(g => icon(g, "stk xs")).join("")}</span><span class="nm">${esc(c.name)}</span><button class="btn sm dark" type="button" data-launch="${esc(c.id)}">Launch this combo</button><span class="nx">${esc(gamesOf(c).map(g => g.name).join(" + "))}</span></div>`).join("")
     : `<div class="empty small"><b>No suggested combos yet</b><span>Pick any 2 or 3 games and launch the first coin.</span><a class="btn sm dark" href="#launch">Launch a coin</a></div>`;
 
-  renderChips(); renderGrid(); renderCombos();
+  renderChips(); renderGrid(); renderCombos(); renderCoins();
 
   // pools
   $("#threshold").textContent = `Each coin's pool is split once it holds ${S.thresholdSol} SOL or more.`;
@@ -197,6 +197,18 @@ function renderAll() {
   renderGlist(); preview();
   if (!$("[data-view=game]").hidden && current.game) renderGame(byId(current.game));
 }
+
+// launched coins tab
+let coinSort = "new";
+function renderCoins() {
+  const list = S.combos.filter(c => c.coin);
+  const mc = c => c.coin.mc, ai = c => c.coin.aiPct, at = c => c.coin.createdAt;
+  list.sort(coinSort === "mc" ? (a, b) => mc(b) - mc(a) || at(b) - at(a) : coinSort === "ai" ? (a, b) => ai(b) - ai(a) || mc(b) - mc(a) : (a, b) => at(b) - at(a));
+  $("#coins-count").textContent = list.length ? `${list.length} coin${list.length > 1 ? "s" : ""} live` : "";
+  $("#coinsort").hidden = !list.length;
+  $("#coingrid").innerHTML = list.length ? list.map(c => cart(c, { link: true })).join("") : `<div class="empty"><b>No coins launched yet</b><span>Be the first. Pick a combo and launch it on pump.fun from your own wallet.</span><a class="btn primary" href="#launch">Launch a coin</a></div>`;
+}
+$("#coinsort").onchange = e => { coinSort = e.target.value; renderCoins(); };
 
 // grid
 let platF = "all", q = "", sort = "pct", showAll = false;
@@ -574,7 +586,7 @@ $("#do-launch").onclick = async () => {
 
 
 // ---------- router ----------
-const VIEWS = ["explore", "live", "pools", "launch", "me", "rules", "game"];
+const VIEWS = ["explore", "coins", "live", "pools", "launch", "me", "rules", "game"];
 let first = true;
 function route() {
   const h = decodeURIComponent(location.hash.slice(1)) || "explore";

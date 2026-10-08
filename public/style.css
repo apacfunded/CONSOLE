@@ -393,7 +393,7 @@ footer.foot{margin-top:32px;padding:8px 6px;font-size:14px;color:var(--muted);di
   :root{--tabbar:64px}
   .topnav,.hdr-act .btn.primary{display:none}
   .hdr-in{padding:6px 6px 6px 18px}
-  .tabbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:40;background:var(--plum);border-radius:999px;padding:4px}
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:40;background:var(--plum);border-radius:999px;padding:4px}
   .tabbar a{display:grid;justify-items:center;align-content:center;gap:2px;min-height:56px;text-decoration:none;color:var(--on-plum-muted);font-size:12px;font-weight:600;border-radius:999px}
   .tabbar a[aria-current="page"]{color:#fff;background:var(--plum-2)}
   .tabbar svg{width:22px;height:22px}
